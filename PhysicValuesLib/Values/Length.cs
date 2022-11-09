@@ -57,16 +57,16 @@ namespace PhysicValuesLib.Values
                 case "Метр":
                     break;
                 case "Милиметр":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
                 case "Сантиметр":
-                    Value *= 100;
+                    Value = Math.Round(Value * 100, 6);
                     break;
                 case "Дециметр":
-                    Value *= 10;
+                    Value = Math.Round(Value * 10, 6);
                     break;
                 case "Километр":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
             }
         }
@@ -82,16 +82,16 @@ namespace PhysicValuesLib.Values
                 case "Метр":
                     break;
                 case "Милиметр":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
                 case "Сантиметр":
-                    Value /= 100;
+                    Value = Math.Round(Value / 100, 6);
                     break;
                 case "Дециметр":
-                    Value /= 10;
+                    Value = Math.Round(Value / 10, 6);
                     break;
                 case "Километр":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000,6);
                     break;
             }
         }

@@ -57,16 +57,16 @@ namespace PhysicValuesLib.Values
                 case "Кубический_метр":
                     break;
                 case "Милилитр":
-                    Value /= 0.000001;
+                    Value = Math.Round(Value / 0.000001, 6);
                     break;
                 case "Литр":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
                 case "Кубический_сантиметр":
-                    Value *= 1000000;
+                    Value = Math.Round(Value * 1000000, 6);
                     break;
                 case "Кубический_дециметр":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
             }
         }
@@ -81,16 +81,16 @@ namespace PhysicValuesLib.Values
                 case "Кубический_метр":
                     break;
                 case "Милилитр":
-                    Value *= 0.000001;
+                    Value = Math.Round(Value * 0.000001, 6);
                     break;
                 case "Литр":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
                 case "Кубический_сантиметр":
-                    Value /= 1000000;
+                    Value = Math.Round(Value / 1000000, 6);
                     break;
                 case "Кубический_дециметр":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
             }
         }

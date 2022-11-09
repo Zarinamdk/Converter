@@ -56,13 +56,13 @@ namespace PhysicValuesLib.Values
                 case "Секунда":
                     break;
                 case "Минута":
-                    Value /= 60;
+                    Value = Math.Round(Value / 60, 6);
                     break;
                 case "Час":
-                    Value /= 3600;
+                    Value = Math.Round(Value / 3600, 6);
                     break;
                 case "Милисекунда":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
             }
         }
@@ -77,13 +77,13 @@ namespace PhysicValuesLib.Values
                 case "Секунда":
                     break;
                 case "Минута":
-                    Value *= 60;
+                    Value = Math.Round(Value * 60, 6);
                     break;
                 case "Час":
-                    Value *= 3600;
+                    Value = Math.Round(Value * 3600, 6);
                     break;
                 case "Милисекунда":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
             }
         }

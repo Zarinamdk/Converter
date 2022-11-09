@@ -54,15 +54,15 @@ namespace PhysicValuesLib.Values
             switch (To)
             {
                 case "Грамм":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
                 case "Килограмм":
                     break;
                 case "Центнер":
-                    Value /= 100;
+                    Value = Math.Round(Value / 100, 6);
                     break;
                 case "Тонна":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
             }
         }
@@ -75,15 +75,15 @@ namespace PhysicValuesLib.Values
             switch (From)
             {
                 case "Грамм":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
                 case "Килограмм":
                     break;
                 case "Центнер":
-                    Value *= 100;
+                    Value = Math.Round(Value * 100, 6);
                     break;
                 case "Тонна":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
             }
         }

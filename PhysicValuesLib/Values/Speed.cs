@@ -56,13 +56,13 @@ namespace PhysicValuesLib.Values
                 case "Метр в секунду":
                     break;
                 case "Километр в час":
-                    Value = Value / 1000 * 3600;
+                    Value = Math.Round(Value / 1000 * 3600, 6);
                     break;
                 case "Метр в минуту":
-                    Value *= 60;
+                    Value = Math.Round(Value * 60, 6);
                     break;
                 case "Километр в секунду":
-                    Value /= 1000;
+                    Value = Math.Round(Value / 1000, 6);
                     break;
             }
         }
@@ -77,13 +77,13 @@ namespace PhysicValuesLib.Values
                 case "Метр в секунду":
                     break;
                 case "Километр в час":
-                    Value = Value * 1000 / 3600;
+                    Value = Math.Round(Value * 1000 / 3600, 6);
                     break;
                 case "Метр в минуту":
-                    Value /= 60;
+                    Value = Math.Round(Value / 60, 6);
                     break;
                 case "Километр в секунду":
-                    Value *= 1000;
+                    Value = Math.Round(Value * 1000, 6);
                     break;
             }
         }
