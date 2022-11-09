@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using ConverterLib;
+using PhysicValuesLib;
 
 namespace WindowsAPI
 {
@@ -17,9 +8,25 @@ namespace WindowsAPI
         {
             InitializeComponent();
         }
-        Converter converter = new Converter();
+        ConverterManager converterManager = new ConverterManager();
 
-       
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = (string)listBox1.SelectedItem;
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
+            listBox2.Items.AddRange(converterManager.GetMeasureList(str).ToArray());
+            listBox3.Items.AddRange(converterManager.GetMeasureList(str).ToArray());
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            listBox1.Items.AddRange(converterManager.GetPhysicValuesList().ToArray());
+            listBox1.SelectedIndex = 0;
+            string str = (string)listBox1.SelectedItem;
+            listBox2.Items.AddRange(converterManager.GetMeasureList(str).ToArray());
+            listBox3.Items.AddRange(converterManager.GetMeasureList(str).ToArray());
+        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -31,33 +38,13 @@ namespace WindowsAPI
 
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
-        {
-            listBox3.Items.AddRange(converter.GetPhysicValuesList().ToArray());
-            listBox3.SelectedIndex = 0;
-            string str = listBox3.SelectedItem.ToString();
-            listBox1.Items.AddRange(converter.GetMeassureList(str).ToArray());
-            listBox2.Items.AddRange(converter.GetMeassureList(str).ToArray());
-        }
-
-        private void listBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-            string str = listBox3.SelectedItem.ToString();
-            listBox1.Items.Clear();
-            listBox2.Items.Clear();
-            listBox1.Items.AddRange(converter.GetMeassureList(str).ToArray());
-            listBox2.Items.AddRange(converter.GetMeassureList(str).ToArray());
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             double value = Convert.ToDouble(textBox1.Text);
-            string physicValue = listBox3.SelectedItem.ToString();
-            string from = listBox1.SelectedItem.ToString();
-            string to = listBox2.SelectedItem.ToString();
-            textBox2.Text = converter.GetConvertedValue(physicValue, value, from, to).ToString();
+            string physicValue = (string)listBox1.SelectedItem;
+            string from = (string)listBox2.SelectedItem;
+            string to = (string)listBox3.SelectedItem;
+            textBox2.Text = converterManager.GetConvertedValue(physicValue, value, from, to).ToString();
         }
     }
 }
